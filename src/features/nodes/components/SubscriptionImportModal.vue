@@ -17,6 +17,7 @@ import Modal from '../../../components/ui/BaseModal.vue';
 import { useToastStore } from '../../../stores/toast';
 import type { Node } from '../../../types/index';
 import { parseImportText } from '../../../utils/importer';
+import { generateUUID } from '../../../utils/utils';
 
 // ==================== Props 和 Emit ====================
 
@@ -154,7 +155,7 @@ const importSubscription = async () => {
                 (n: any) =>
                     ({
                         ...n,
-                        id: n.id || crypto.randomUUID(),
+                        id: n.id || generateUUID(),
                         enabled: true
                     }) as unknown as Node
             );
@@ -224,7 +225,7 @@ const importSubscription = async () => {
                     (n: any) =>
                         ({
                             ...n,
-                            id: n.id || crypto.randomUUID(),
+                            id: n.id || generateUUID(),
                             enabled: true
                         }) as unknown as Node
                 );
