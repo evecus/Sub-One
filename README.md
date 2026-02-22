@@ -210,10 +210,10 @@ npm run preview
 
     ```bash
     # 使用 curl
-    curl -O https://raw.githubusercontent.com/binbankm/Sub-One/main/docker-compose.yml
+    curl -O https://raw.githubusercontent.com/evecus/Sub-One/main/docker-compose.yml
 
     # 或者使用 wget
-    wget https://raw.githubusercontent.com/binbankm/Sub-One/main/docker-compose.yml
+    wget https://raw.githubusercontent.com/evecus/Sub-One/main/docker-compose.yml
     ```
 
 2. (可选) 手动创建 `docker-compose.yml`:
@@ -222,7 +222,7 @@ npm run preview
     version: '3.8'
     services:
         sub-one:
-            image: ghcr.io/binbankm/sub-one:latest
+            image: evecus/sub-one:latest
             container_name: sub-one
             ports:
                 - '3055:3055'
@@ -257,7 +257,7 @@ docker run -d \
   -p 3055:3055 \
   -v $(pwd)/data:/app/data \
   -e PORT=3055 \
-  ghcr.io/binbankm/sub-one:latest
+  evecus/sub-one:latest
 ```
 
 - **访问端口**: 现已统一修改为 `3055`。
