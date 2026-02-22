@@ -16,6 +16,7 @@ import { useToastStore } from '../../stores/toast';
 import type { Subscription } from '../../types/index';
 import { HTTP_REGEX } from '../../utils/constants';
 import { createSubscription } from '../../utils/importer';
+import { generateUUID } from '../../utils/utils';
 import Card from './components/SubscriptionCard.vue';
 
 const props = defineProps<{
@@ -146,7 +147,7 @@ const handleSaveSubscription = async (updatedSub: Subscription) => {
         return showToast('⚠️ 请输入有效的 http:// 或 https:// 订阅链接', 'error');
 
     if (isNewSubscription.value) {
-        const newSubId = crypto.randomUUID();
+        const newSubId = generateUUID();
         const newSub = { ...updatedSub, id: newSubId };
         const success = await dataStore.addSubscription(newSub);
 
